@@ -44,7 +44,7 @@ namespace EncurtadorUrl.Controllers
 
 
         [HttpPost("{userid}/urls")]
-        public IActionResult Post(UrlInputDTO urlInputDTO,int userid)        
+        public IActionResult PostUrl(UrlInputDTO urlInputDTO,int userid)        
         {
             StatsDTO s = _usersService.CreateUrl(urlInputDTO,userid);
             if (s==null)
@@ -52,7 +52,18 @@ namespace EncurtadorUrl.Controllers
 
             return Created("api/stats/" + s.ID.ToString(),s);
 
-        }    
+        }
+
+        [HttpPost]
+        public IActionResult Post(UserInputDTO urlInputDTO)        
+        {
+            User u = _usersService.CreateUser(urlInputDTO.Name);
+            if (u==null)
+                return Conflict();
+   
+            return Created("api/users/" + u.ID + "/stats",u);
+
+        }            
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
