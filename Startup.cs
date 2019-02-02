@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using EncurtadorUrl.Services;
-
+using AutoMapper;
 namespace EncurtadorUrl
 {
     public class Startup
@@ -31,7 +31,9 @@ namespace EncurtadorUrl
 
             string connection = Configuration["ConexaoMySql:MySqlConnectionString"];
             services.AddDbContext<EncurtadorUrlContext>(options => options.UseLazyLoadingProxies().UseMySql(connection));            
-            services.AddScoped<IUrlService, UrlService>();                     
+            services.AddScoped<IUrlService, UrlService>();
+            services.AddScoped<IStatsService, StatsService>(); 
+            services.AddAutoMapper();                                           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

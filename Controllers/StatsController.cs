@@ -12,40 +12,34 @@ using System.Security.Claims;
 using System;
 using Microsoft.Extensions.Options;
 using EncurtadorUrl.Services;
-using EncurtadorUrl.Models;
+using EncurtadorUrl.DTOS;
 
 namespace EncurtadorUrl.Controllers
 {
 
     [Route("api/[controller]")]
     [ApiController]
-      public class UrlController : ControllerBase
+      public class StatsController : ControllerBase
     {
-        private readonly IUrlService _urlService;
+        private readonly IStatsService _statsService;
 
-        public UrlController(IUrlService urlService)
+        public StatsController(IStatsService statsService)
         {
-            _urlService = urlService;
+            _statsService = statsService;
         }
 
 
         [HttpGet("{id}")]
-         public ActionResult GetById(int id)
+         public ActionResult<StatsDTO> GetById(int id)
         {
-            Url url= _urlService.GetByID(id);
-            if (url!=null)
-                return Redirect(url.FullUrl);
-            else
+            StatsDTO s =  _statsService.GetByID(id);
+            if (s==null)
                 return NotFound();
+            
+            return s;
+
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            if (_urlService.Delete(id))
-                return NoContent();
-            else
-                return NotFound(); 
-        }
+
     }
 }
