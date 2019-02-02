@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using EncurtadorUrl.Models;
+using EncurtadorUrl.DTOS;
 using System.Text;
 
 namespace EncurtadorUrl.Services
@@ -10,6 +11,8 @@ namespace EncurtadorUrl.Services
     {
         Url GetByID(int id);
         bool Delete (int id);
+        Url Create(string url, User user);
+
     }
  
     public class UrlService : IUrlService
@@ -35,6 +38,21 @@ namespace EncurtadorUrl.Services
             _context.SaveChanges();
             return true;
         }
+
+        public Url Create(string url, User user)
+        {
+            Url u = new Url();
+            u.FullUrl = url;
+            u.ShortUrl= string.Concat("http://", Guid.NewGuid().ToString().Substring(0,10));
+            u.Hits =0;
+            u.User=user;
+
+            _context.Urls.Add(u);
+            _context.SaveChanges();
+
+            return u;
+        }
+
 
     }
 }

@@ -33,6 +33,7 @@ namespace EncurtadorUrl
             services.AddDbContext<EncurtadorUrlContext>(options => options.UseLazyLoadingProxies().UseMySql(connection));            
             services.AddScoped<IUrlService, UrlService>();
             services.AddScoped<IStatsService, StatsService>(); 
+            services.AddScoped<IUsersService, UsersService>();             
             services.AddAutoMapper();                                           
         }
 

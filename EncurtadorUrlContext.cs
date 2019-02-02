@@ -12,11 +12,12 @@ namespace EncurtadorUrl
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new UserConfiguration());                 
             modelBuilder.ApplyConfiguration(new UrlConfiguration());
-                 
         }        
 
-        public DbSet<Url> Urls { get; set; }        
+        public DbSet<Url> Urls { get; set; }  
+        public DbSet<User> Users { get; set; }           
        
     }        
 }

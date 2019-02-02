@@ -10,5 +10,8 @@ namespace EncurtadorUrl.Models
         public int Hits { get; set; }        
         public string FullUrl { get; set; }        
         public string ShortUrl { get; set; }
+
+        public virtual User User  { get; set; }
+        public  int UserID  { get; set; }        
     }
 }
