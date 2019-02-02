@@ -12,7 +12,10 @@ namespace EncurtadorUrl.Services
     {
         StatsDTO GetByID(int id);
         SystemStatsDTO GetSystemStats();
+        SystemStatsDTO GetStatsByUser(int userID);
         StatsDTO Get(Url url);
+
+
 
 
     }
@@ -48,15 +51,28 @@ namespace EncurtadorUrl.Services
             SystemStatsDTO ss = new SystemStatsDTO();
             ss.UrlCount = _context.Urls.Count();
             ss.Hits = _context.Urls.Sum(x=>x.Hits);
-            ss.TopUrls =  this.GetTopUrls();
+            ss.TopUrls =  this.GetTopUrls(_context.Urls.ToList());
             return ss;
         }
 
-        private IList<StatsDTO> GetTopUrls()
+        public  SystemStatsDTO GetStatsByUser(int userID)
         {
-            IList<Url> urlList = _context.Urls.OrderByDescending(x=>x.Hits).Take(3).ToList();
+            User u = _context.Users.FirstOrDefault(x=>x.ID==userID);
+            if (u==null)
+                return null;
+
+            SystemStatsDTO ss = new SystemStatsDTO();
+            ss.UrlCount =  u.UrlList.Count();
+            ss.Hits = u.UrlList.Sum(x=>x.Hits);
+            ss.TopUrls =  this.GetTopUrls(u.UrlList);
+
+            return ss;            
+        }
+        private IList<StatsDTO> GetTopUrls(IList<Url> urlList)
+        {
+            IList<Url> topList = urlList.OrderByDescending(x=>x.Hits).Take(10).ToList();
             IList<StatsDTO> statsList = new List<StatsDTO>();
-            foreach(Url url in urlList){
+            foreach(Url url in topList){
                 statsList.Add(Get(url));
             }
             return statsList;

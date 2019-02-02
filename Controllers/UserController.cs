@@ -23,12 +23,24 @@ namespace EncurtadorUrl.Controllers
       public class UsersController : ControllerBase
     {
         private readonly IUsersService _usersService;
+        private readonly IStatsService _statsService;        
 
-        public UsersController(IUsersService usersService)
+        public UsersController(IUsersService usersService,IStatsService statsService )
         {
             _usersService = usersService;
+            _statsService = statsService;
         }
 
+
+        [HttpGet("{userid}/stats")]
+        public ActionResult<SystemStatsDTO> Get(int userid)        
+        {
+            SystemStatsDTO s = _statsService.GetStatsByUser(userid);
+            if (s==null)
+                return NotFound();
+            
+            return s;
+        }   
 
 
         [HttpPost("{userid}/urls")]
