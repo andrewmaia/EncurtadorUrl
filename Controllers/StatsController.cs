@@ -37,8 +37,14 @@ namespace EncurtadorUrl.Controllers
                 return NotFound();
             
             return s;
-
         }
+
+        [HttpGet()]
+         public ActionResult<SystemStatsDTO> GetAll()
+        {
+            
+            return _statsService.GetSystemStats();
+        }        
 
 
     }

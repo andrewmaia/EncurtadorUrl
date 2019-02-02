@@ -11,6 +11,7 @@ namespace EncurtadorUrl.Services
     public interface IStatsService
     {
         StatsDTO GetByID(int id);
+        SystemStatsDTO GetSystemStats();
     }
  
     public class StatsService : IStatsService
@@ -31,7 +32,26 @@ namespace EncurtadorUrl.Services
             if(url==null)
                 return null; 
 
-            return _mapper.Map<StatsDTO>(url);                 
+            return _mapper.Map<StatsDTO>(url);
+        }
+
+        public SystemStatsDTO GetSystemStats()
+        {
+            SystemStatsDTO ss = new SystemStatsDTO();
+            ss.UrlCount = _context.Urls.Count();
+            ss.Hits = _context.Urls.Sum(x=>x.Hits);
+            ss.TopUrls =  this.GetTopUrls();
+            return ss;
+        }
+
+        private IList<StatsDTO> GetTopUrls()
+        {
+            IList<Url> urlList = _context.Urls.OrderByDescending(x=>x.Hits).Take(3).ToList();
+            IList<StatsDTO> statsList = new List<StatsDTO>();
+            foreach(Url url in urlList){
+                statsList.Add(GetByID(url.ID));
+            }
+            return statsList;
         }
     }
 }
