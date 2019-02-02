@@ -1,0 +1,14 @@
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\bin\Debug\netcoreapp2.1\EncurtadorUrl.deps.json
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\bin\Debug\netcoreapp2.1\EncurtadorUrl.runtimeconfig.json
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\bin\Debug\netcoreapp2.1\EncurtadorUrl.runtimeconfig.dev.json
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\bin\Debug\netcoreapp2.1\EncurtadorUrl.dll
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\bin\Debug\netcoreapp2.1\EncurtadorUrl.pdb
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\obj\Debug\netcoreapp2.1\EncurtadorUrl.csprojAssemblyReference.cache
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\obj\Debug\netcoreapp2.1\EncurtadorUrl.csproj.CoreCompileInputs.cache
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\obj\Debug\netcoreapp2.1\EncurtadorUrl.RazorAssemblyInfo.cache
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\obj\Debug\netcoreapp2.1\EncurtadorUrl.RazorAssemblyInfo.cs
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\obj\Debug\netcoreapp2.1\EncurtadorUrl.AssemblyInfoInputs.cache
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\obj\Debug\netcoreapp2.1\EncurtadorUrl.AssemblyInfo.cs
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\obj\Debug\netcoreapp2.1\EncurtadorUrl.RazorTargetAssemblyInfo.cache
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\obj\Debug\netcoreapp2.1\EncurtadorUrl.dll
+C:\Andrew\Projetos\Asp.Net Core\EncurtadorUrl\EncurtadorUrl\obj\Debug\netcoreapp2.1\EncurtadorUrl.pdb
