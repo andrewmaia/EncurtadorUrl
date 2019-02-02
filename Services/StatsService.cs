@@ -14,10 +14,6 @@ namespace EncurtadorUrl.Services
         SystemStatsDTO GetSystemStats();
         SystemStatsDTO GetStatsByUser(int userID);
         StatsDTO Get(Url url);
-
-
-
-
     }
  
     public class StatsService : IStatsService

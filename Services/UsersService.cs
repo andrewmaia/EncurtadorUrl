@@ -10,6 +10,7 @@ namespace EncurtadorUrl.Services
     public interface IUsersService
     {
         StatsDTO CreateUrl(UrlInputDTO urlInputDTO, int userid);
+        bool Delete (int id);        
     }
  
     public class UsersService : IUsersService
@@ -40,5 +41,18 @@ namespace EncurtadorUrl.Services
             return _statsService.Get(url);
         }
 
+        public bool Delete (int id)
+        {
+            User user =_context.Users.FirstOrDefault(x=>x.ID==id);
+            if(user==null)
+                return false;
+
+            foreach(Url url in user.UrlList)
+                _context.Urls.Remove(url);
+            
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+            return true;            
+        }
     }
 }

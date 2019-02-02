@@ -54,6 +54,14 @@ namespace EncurtadorUrl.Controllers
 
         }    
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            if (_usersService.Delete(id))
+                return NoContent();
+            else
+                return NotFound(); 
+        }
     
     }
 }
