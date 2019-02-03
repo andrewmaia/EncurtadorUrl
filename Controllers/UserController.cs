@@ -57,7 +57,7 @@ namespace EncurtadorUrl.Controllers
         [HttpPost]
         public IActionResult Post(UserInputDTO urlInputDTO)        
         {
-            User u = _usersService.CreateUser(urlInputDTO.Name);
+            User u = _usersService.CreateUser(urlInputDTO.ID);
             if (u==null)
                 return Conflict();
    

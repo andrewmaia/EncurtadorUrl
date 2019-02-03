@@ -20,11 +20,11 @@ namespace EncurtadorUrl.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-      public class UrlController : ControllerBase
+      public class UrlsController : ControllerBase
     {
         private readonly IUrlService _urlService;
 
-        public UrlController(IUrlService urlService)
+        public UrlsController(IUrlService urlService)
         {
             _urlService = urlService;
         }
